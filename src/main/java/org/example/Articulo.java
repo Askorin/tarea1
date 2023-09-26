@@ -9,6 +9,9 @@ public class Articulo {
         this.peso = peso;
         this.nombre = nombre;
         this.descripcion = desc;
-        this.peso = precio;
+        this.precio = precio;
+    }
+    public String toString() {
+        return "Nombre: " + this.nombre + "\nDescripción: " + this.descripcion + "\nPrecio (clp): " + this.precio + "\nPeso (kg): " + this.peso;
     }
 }
