@@ -12,6 +12,7 @@ public class Articulo {
         this.descripcion = desc;
         this.precio = precio;
     }
+
     @Override
     public String toString() {
         return "Nombre: " + this.nombre + "\nDescripción: " + this.descripcion + "\nPrecio (clp): " + this.precio + "\nPeso (kg): " + this.peso;
