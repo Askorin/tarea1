@@ -10,5 +10,8 @@ public class Main {
         System.out.println(art1.getDescripcion());
         System.out.println(art1.getPrecio());
 
+        // Creamos un detalle de orden para probar el artículo.
+        DetalleOrden det1 = new DetalleOrden(art1, 5);
+        System.out.println(det1);
     }
 }
