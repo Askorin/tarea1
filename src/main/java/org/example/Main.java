@@ -13,5 +13,8 @@ public class Main {
         // Creamos un detalle de orden para probar el artículo.
         DetalleOrden det1 = new DetalleOrden(art1, 5);
         System.out.println(det1);
+        System.out.println(det1.calcPrecioSinIVA());
+        System.out.println(det1.calcIVA());
+        System.out.println(det1.calcPrecio());
     }
 }

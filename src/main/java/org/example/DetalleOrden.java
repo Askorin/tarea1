@@ -27,14 +27,15 @@ public class DetalleOrden {
     public Articulo getArticulo() {
         return this.articulo;
     }
-    private float calcPrecio() {
+
+    public float calcPrecioSinIVA() {
         return this.cantidad * articulo.getPrecio();
     }
-    public float calcPrecioSinIVA() {
-        return calcPrecio();
+    public float calcIVA() {
+        return calcPrecioSinIVA() * 0.19f;
     }
-    public float calcPrecioConIVA() {
-        return calcPrecioSinIVA() * 1.19f;
+    public float calcPrecio() {
+        return calcPrecioSinIVA() + calcIVA();
     }
     public float calcPeso() {
         return this.cantidad * articulo.getPeso();

@@ -35,4 +35,24 @@ public class OrdenCompra {
     public void setDetalles(ArrayList<DetalleOrden> detalles) {
         this.detalles = detalles;
     }
+    public float calcPrecioSinIVA() {
+        float retval = 0;
+        for (DetalleOrden d : detalles) {
+            retval += d.calcPrecioSinIVA();
+        }
+        return retval;
+    }
+    public float calcIVA() {
+        return calcPrecioSinIVA() * 0.19f;
+    }
+    public float calcPrecio() {
+        return calcPrecioSinIVA() + calcIVA();
+    }
+    public float calcPeso() {
+        float retval = 0;
+        for (DetalleOrden d : detalles) {
+            retval += d.calcPeso();
+        }
+        return retval;
+    }
 }
