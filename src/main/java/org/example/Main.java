@@ -26,11 +26,13 @@ public class Main {
         /* Creamos al cliente. */
         Cliente cl1 = new Cliente("Roberto", "20097301-2", dir);
 
+        /* Una fecha para usar */
+        Date fecha = new Date(2022, Calendar.JANUARY, 20);
         /* Creamos la orden de compra. */
         /*
         Notar que en el constructor de la Clase OrdenCompra se asocia al cliente la orden de compra.
          */
-        OrdenCompra odc = new OrdenCompra(new Date(2022, Calendar.JANUARY, 20), "Pagado", detalles, cl1);
-        System.out.println(odc);
+        OrdenCompra odc = new OrdenCompra(fecha, "Pagado", detalles, cl1);
+
     }
 }
