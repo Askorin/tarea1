@@ -34,5 +34,13 @@ public class Main {
          */
         OrdenCompra odc = new OrdenCompra(fecha, "Pagado", detalles, cl1);
 
+        /* Un pago */
+        Efectivo ef = new Efectivo(1000, fecha);
+        Transferencia tr = new Transferencia(1500, fecha, "santander", "12233");
+        Tarjeta tj = new Tarjeta(2000, fecha, "Credito", "11001");
+        System.out.println(ef);
+        System.out.println(tr);
+        System.out.println(tj);
+
     }
 }
