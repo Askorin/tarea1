@@ -6,11 +6,25 @@ public class OrdenCompra {
     private Date fecha;
     private String estado;
     private ArrayList<DetalleOrden> detalles;
+    private Cliente cliente;
 
-    public OrdenCompra(Date fecha, String estado, ArrayList<DetalleOrden> detalles) {
+    public OrdenCompra(Date fecha, String estado, ArrayList<DetalleOrden> detalles, Cliente cliente) {
         this.fecha = fecha;
         this.estado = estado;
         this.detalles = detalles;
+        this.cliente = cliente;
+        // Se aprovecha para asociar la orden de compra con el cliente.
+        cliente.getOrdenes().add(this);
+    }
+
+    @Override
+    public String toString() {
+        return "OrdenCompra{" +
+                "fecha=" + fecha +
+                ", estado='" + estado + '\'' +
+                ", detalles=" + detalles +
+                ", cliente=" + cliente +
+                '}';
     }
 
     public Date getFecha() {
@@ -25,6 +39,10 @@ public class OrdenCompra {
         return detalles;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
@@ -35,6 +53,11 @@ public class OrdenCompra {
     public void setDetalles(ArrayList<DetalleOrden> detalles) {
         this.detalles = detalles;
     }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     public float calcPrecioSinIVA() {
         float retval = 0;
         for (DetalleOrden d : detalles) {
