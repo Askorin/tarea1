@@ -8,9 +8,7 @@ public class Direccion {
 
     @Override
     public String toString() {
-        return "Direccion{" +
-                "direccion='" + direccion + '\'' +
-                '}';
+        return "direccion: " + this.direccion;
     }
 
     public String getDireccion() {

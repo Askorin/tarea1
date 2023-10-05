@@ -1,5 +1,4 @@
 package org.example;
-
 import java.util.ArrayList;
 
 public class Cliente {
@@ -12,6 +11,7 @@ public class Cliente {
         this.nombre = nombre;
         this.rut = rut;
         this.direccion = direccion;
+        this.ordenes = new ArrayList<>();
     }
     public String getNombre() {
         return nombre;
@@ -45,5 +45,12 @@ public class Cliente {
         this.ordenes = ordenes;
     }
 
-
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nombre:'" + nombre + '\'' +
+                ", rut:'" + rut + '\'' +
+                ", direccion:" + direccion +
+                '}';
+    }
 }

@@ -22,7 +22,6 @@ public class Main {
 
         // Creamos una dirección para un futuro cliente.
         Direccion dir = new Direccion("Los alamos 244");
-        System.out.println(dir);
 
         /* Creamos al cliente. */
         Cliente cl1 = new Cliente("Roberto", "20097301-2", dir);
@@ -32,6 +31,6 @@ public class Main {
         Notar que en el constructor de la Clase OrdenCompra se asocia al cliente la orden de compra.
          */
         OrdenCompra odc = new OrdenCompra(new Date(2022, Calendar.JANUARY, 20), "Pagado", detalles, cl1);
-
+        System.out.println(odc);
     }
 }

@@ -19,7 +19,12 @@ public class OrdenCompra {
 
     @Override
     public String toString() {
-       return "Fecha: " + this.fecha.toString() + "\nEstado: " + this.estado + "\nDetalles: " + this.detalles.toString();
+        return "OrdenCompra{" +
+                "fecha=" + fecha +
+                ", estado='" + estado + '\'' +
+                ", detalles=" + detalles +
+                ", cliente=" + cliente +
+                '}';
     }
 
     public Date getFecha() {
