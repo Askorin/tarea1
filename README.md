@@ -1,3 +1,3 @@
 # tarea1
-**Integrante**
+**Integrante:**\
 Antonio Skorin García
