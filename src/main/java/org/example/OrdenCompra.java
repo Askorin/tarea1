@@ -13,6 +13,11 @@ public class OrdenCompra {
         this.detalles = detalles;
     }
 
+    @Override
+    public String toString() {
+       return "Fecha: " + this.fecha.toString() + "\nEstado: " + this.estado + "\nDetalles: " + this.detalles.toString();
+    }
+
     public Date getFecha() {
         return fecha;
     }

@@ -31,9 +31,6 @@ public class Main {
         detalles.add(det2);
         // Creamos la orden de compra.
         OrdenCompra odc = new OrdenCompra(new Date(2022, Calendar.JANUARY, 20), "Pagado", detalles);
-        System.out.println("Fecha: " + odc.getFecha());
-        System.out.println("Precio sin IVA: " + odc.calcPrecioSinIVA());
-        System.out.println("IVA: " + odc.calcIVA());
-        System.out.println("Precio total: " + odc.calcPrecio());
+        System.out.println(odc.toString());
     }
 }
