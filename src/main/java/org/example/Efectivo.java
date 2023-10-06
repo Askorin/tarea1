@@ -11,7 +11,7 @@ public class Efectivo extends Pago {
         return "Efectivo{" + super.toString() + "} ";
     }
 
-    public float calcDevolucion() {
-        return 0;
+    public float calcDevolucion(float a_pagar) {
+        return Math.max(0, getMonto() - a_pagar);
     }
 }
