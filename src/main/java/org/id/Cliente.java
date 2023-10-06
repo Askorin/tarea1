@@ -1,4 +1,6 @@
-package org.example;
+package org.id;
+import org.orden.OrdenCompra;
+
 import java.util.ArrayList;
 
 public class Cliente {

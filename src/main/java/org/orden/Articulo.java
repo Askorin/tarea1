@@ -1,4 +1,4 @@
-package org.example;
+package org.orden;
 
 public class Articulo {
     private float peso;

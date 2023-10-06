@@ -1,4 +1,6 @@
-package org.example;
+package org.doctributario;
+import org.id.Direccion;
+
 import java.util.Date;
 
 abstract public class DocTributario {

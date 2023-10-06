@@ -1,4 +1,4 @@
-package org.example;
+package org.pago;
 import java.util.Date;
 
 public class Efectivo extends Pago {
