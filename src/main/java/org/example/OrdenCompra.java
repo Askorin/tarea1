@@ -20,10 +20,11 @@ public class OrdenCompra {
         this.detalles = new ArrayList<>();
         Random rand = new Random();
         String numeroDoc = String.valueOf(rand.nextInt(99999));
-        if (tipoDocTributario == "Boleta") {
-            this.docTributario = new Boleta(numeroDoc, cliente.getRut(), fecha, cliente.getDireccion());
-        } else if (tipoDocTributario == "Factura") {
+        /* Si OrdenCompra no recibe "Factura" o "Boleta" hará una boleta por defecto. */
+        if (tipoDocTributario == "Factura") {
             this.docTributario = new Factura(numeroDoc, cliente.getRut(), fecha, cliente.getDireccion());
+        } else {
+            this.docTributario = new Boleta(numeroDoc, cliente.getRut(), fecha, cliente.getDireccion());
         }
     }
 
@@ -58,7 +59,7 @@ public class OrdenCompra {
         return docTributario;
     }
 
-    public ArrayList<Pago> getPago() {
+    public ArrayList<Pago> getPagos() {
         return pagos;
     }
 
@@ -81,7 +82,7 @@ public class OrdenCompra {
         this.docTributario = docTributario;
     }
 
-    public void setPago(ArrayList<Pago> pago) {
+    public void setPago(ArrayList<Pago> pagos) {
         this.pagos = pagos;
     }
 
@@ -105,13 +106,15 @@ public class OrdenCompra {
         }
         return retval;
     }
-    /* Este método crea un detalle dentro de una orden de compra de cierta cantidad de artículos. */
+    /* Este método crea un detalle de cierta cantidad de artículos dentro de una orden de compra. */
     public void crearDetalle(Articulo articulo, int cantidad) {
         DetalleOrden detalle = new DetalleOrden(articulo, cantidad);
         detalles.add(detalle);
     }
-    /* Método que retorna lo que se ha pagado hasta ahora, teniendo en cuenta que se pueden hacer
-     * varios pagos en vez de solo uno. Tenía sentido hacerla publica.
+    /*
+     * Método que retorna lo que se ha pagado hasta ahora, teniendo en cuenta que se pueden hacer
+     * varios pagos en vez de solo uno.
+     * Tenía sentido hacerla publica.
      */
     public float getPagado() {
         float pagado = 0;
@@ -120,7 +123,8 @@ public class OrdenCompra {
         }
         return pagado;
     }
-    /* Método addPago añadirá un pago a la orden de compra y en caso de ser necesario hará una
+    /*
+     * Método addPago añadirá un pago a la orden de compra y en caso de ser necesario hará una
      * devolución llamando calcDevolución sobre un pago en efectivo.
      */
     public float addPago(Pago pago) {

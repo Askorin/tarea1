@@ -1,7 +1,6 @@
 package org.example;
 
 public class Articulo {
-    // Hasta ahora no veo razón de añadir setters para todos los fields, es más, los haría final.
     private float peso;
     private String nombre;
     private String descripcion;

@@ -17,10 +17,10 @@ abstract public class DocTributario {
     @Override
     public String toString() {
         return "{" +
-                "numero:'" + numero + '\'' +
-                ", rut:'" + rut + '\'' +
-                ", fecha:" + fecha +
-                ", direccion:" + direccion +
+                "numero: '" + numero + '\'' +
+                ", rut: '" + rut + '\'' +
+                ", fecha: " + fecha +
+                ", direccion: " + direccion +
                 '}';
     }
 
