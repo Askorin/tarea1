@@ -24,10 +24,10 @@ public class Main {
 
         /* Creamos cuatro ordenes de compra y una fecha a usar. */
         Date fecha = new Date();
-        OrdenCompra odc1 = new OrdenCompra(fecha, "Orden Creada", cl1);
-        OrdenCompra odc2 = new OrdenCompra(fecha, "Orden Creada", cl1);
-        OrdenCompra odc3 = new OrdenCompra(fecha, "Orden Creada", cl2);
-        OrdenCompra odc4 = new OrdenCompra(fecha, "Orden Creada", cl3);
+        OrdenCompra odc1 = new OrdenCompra(fecha, "Orden Creada", cl1, "Boleta");
+        OrdenCompra odc2 = new OrdenCompra(fecha, "Orden Creada", cl1, "Factura");
+        OrdenCompra odc3 = new OrdenCompra(fecha, "Orden Creada", cl2, "Boleta");
+        OrdenCompra odc4 = new OrdenCompra(fecha, "Orden Creada", cl3, "Boleta");
 
         /* Mostramos a los clientes. */
         System.out.println(" ***** Mostrando clientes ***** ");

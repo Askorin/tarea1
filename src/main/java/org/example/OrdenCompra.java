@@ -1,6 +1,7 @@
 package org.example;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class OrdenCompra {
     private Date fecha;
@@ -9,7 +10,7 @@ public class OrdenCompra {
     private Cliente cliente;
     private DocTributario docTributario;
     private ArrayList<Pago> pagos;
-    public OrdenCompra(Date fecha, String estado, Cliente cliente) {
+    public OrdenCompra(Date fecha, String estado, Cliente cliente, String tipoDocTributario) {
         this.fecha = fecha;
         this.estado = estado;
         this.cliente = cliente;
@@ -17,15 +18,23 @@ public class OrdenCompra {
         cliente.getOrdenes().add(this);
         this.pagos = new ArrayList<>();
         this.detalles = new ArrayList<>();
+        Random rand = new Random();
+        String numeroDoc = String.valueOf(rand.nextInt(99999));
+        if (tipoDocTributario == "Boleta") {
+            this.docTributario = new Boleta(numeroDoc, cliente.getRut(), fecha, cliente.getDireccion());
+        } else if (tipoDocTributario == "Factura") {
+            this.docTributario = new Factura(numeroDoc, cliente.getRut(), fecha, cliente.getDireccion());
+        }
     }
 
     @Override
     public String toString() {
         return "OrdenCompra{" +
-                "fecha=" + fecha +
-                ", estado='" + estado + '\'' +
-                ", detalles=" + detalles +
-                ", cliente=" + cliente +
+                "fecha: " + fecha +
+                ", estado: '" + estado + '\'' +
+                ", detalles: " + detalles +
+                ", cliente: " + cliente +
+                ", docTributario: " + docTributario +
                 '}';
     }
 
