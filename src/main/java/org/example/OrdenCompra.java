@@ -7,14 +7,16 @@ public class OrdenCompra {
     private String estado;
     private ArrayList<DetalleOrden> detalles;
     private Cliente cliente;
-
-    public OrdenCompra(Date fecha, String estado, ArrayList<DetalleOrden> detalles, Cliente cliente) {
+    private DocTributario docTributario;
+    private ArrayList<Pago> pagos;
+    public OrdenCompra(Date fecha, String estado, Cliente cliente) {
         this.fecha = fecha;
         this.estado = estado;
-        this.detalles = detalles;
         this.cliente = cliente;
         // Se aprovecha para asociar la orden de compra con el cliente.
         cliente.getOrdenes().add(this);
+        this.pagos = new ArrayList<>();
+        this.detalles = new ArrayList<>();
     }
 
     @Override
@@ -43,6 +45,14 @@ public class OrdenCompra {
         return cliente;
     }
 
+    public DocTributario getDocTributario() {
+        return docTributario;
+    }
+
+    public ArrayList<Pago> getPago() {
+        return pagos;
+    }
+
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
@@ -56,6 +66,14 @@ public class OrdenCompra {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public void setDocTributario(DocTributario docTributario) {
+        this.docTributario = docTributario;
+    }
+
+    public void setPago(ArrayList<Pago> pago) {
+        this.pagos = pagos;
     }
 
     public float calcPrecioSinIVA() {
@@ -77,5 +95,33 @@ public class OrdenCompra {
             retval += d.calcPeso();
         }
         return retval;
+    }
+    /* Este método crea un detalle dentro de una orden de compra de cierta cantidad de artículos. */
+    public void crearDetalle(Articulo articulo, int cantidad) {
+        DetalleOrden detalle = new DetalleOrden(articulo, cantidad);
+        detalles.add(detalle);
+    }
+    /* Método que retorna lo que se ha pagado hasta ahora, teniendo en cuenta que se pueden hacer
+     * varios pagos en vez de solo uno. Tenía sentido hacerla publica.
+     */
+    public float getPagado() {
+        float pagado = 0;
+        for (Pago p : pagos) {
+            pagado += p.getMonto();
+        }
+        return pagado;
+    }
+    /* Método addPago añadirá un pago a la orden de compra y en caso de ser necesario hará una
+     * devolución llamando calcDevolución sobre un pago en efectivo.
+     */
+    public float addPago(Pago pago) {
+        float devolucion = 0;
+        if (pago instanceof Efectivo) {
+            float a_pagar = calcPrecio() - getPagado();
+            devolucion = ((Efectivo) pago).calcDevolucion(a_pagar);
+            pago.setMonto(pago.getMonto() - devolucion);
+        }
+        pagos.add(pago);
+        return devolucion;
     }
 }

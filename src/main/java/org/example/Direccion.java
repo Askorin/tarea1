@@ -8,7 +8,7 @@ public class Direccion {
 
     @Override
     public String toString() {
-        return "direccion: " + this.direccion;
+        return this.direccion;
     }
 
     public String getDireccion() {
