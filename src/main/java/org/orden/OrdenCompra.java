@@ -1,4 +1,11 @@
-package org.example;
+package org.orden;
+import org.doctributario.Boleta;
+import org.doctributario.DocTributario;
+import org.doctributario.Factura;
+import org.id.Cliente;
+import org.pago.Efectivo;
+import org.pago.Pago;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;

@@ -1,7 +1,13 @@
-package org.example;
+package org.main;
 
-import java.util.ArrayList;
-import java.util.Calendar;
+import org.id.Cliente;
+import org.id.Direccion;
+import org.orden.Articulo;
+import org.orden.OrdenCompra;
+import org.pago.Efectivo;
+import org.pago.Tarjeta;
+import org.pago.Transferencia;
+
 import java.util.Date;
 
 public class Main {

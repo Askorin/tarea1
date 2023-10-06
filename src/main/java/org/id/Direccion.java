@@ -1,4 +1,4 @@
-package org.example;
+package org.id;
 
 public class Direccion {
     private String direccion;
